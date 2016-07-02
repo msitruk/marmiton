@@ -1,0 +1,52 @@
+body
+{
+/*	background: repeating-linear-gradient(
+  45deg,
+  green,
+  green 4px,
+  white 4px,
+  white 8px
+);*/
+background-color: #FE9F10;
+padding-top: 100px;
+}
+.navbar-brand
+{
+  padding: 0px 0px;
+  margin-right: 15px;
+}
+.navbar
+{
+  border: solid 1px black;
+  background-color: white;
+}
+.jumbotron
+{
+  border: solid 1px black;
+}
+#update
+{
+  display: none;
+}
+thead
+{
+  background-color: #F8F8F8;
+}
+td
+{
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  }
+#struct
+{
+  display: none;
+}
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+.hr_form
+{
+  border-top: 1px solid #FE9F10;
+  width: 60%;
+}

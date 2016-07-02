@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  {% block head %}
+  	<title>{% block title %}{% endblock %} - My_phpMyAdmin</title>
+    <link href="./web/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./web/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="./web/css/navbar.css" rel="stylesheet">
+    <link href="./web/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <script src="./web/js/ie-emulation-modes-warning.js"></script>
+    <link rel="stylesheet" type="text/css" href="./web/css/datatables.min.css"/>
+    <link rel="stylesheet" href="./web/css/style.css">
+  {% endblock %}
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header nav pull-left">
+          <a class="navbar-brand" href="#"><img alt="Brand" src="./web/img/logo.png" class="img-responsive"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav ">
+            <li class="active"><a href="./index.php">Acceuil</a></li>
+            <li><a href="./query.php">Requete SQL</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div> <!-- div container fluid -->
+    </nav>
+  </header>
+
+  <div id="content"class="container-fluid jumbotron">{% block content %}{% endblock %}</div>
+  <footer>
+    {% block footer %}
+      <div class="container jumbotron">
+        &copy; Copyright 2016 by <a href="#">Ségolène et Maxime</a>.
+      </div>
+    {% endblock %}
+  </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="./web/js/bootstrap.min.js"></script>
+<script src="./web/js/carousel.js"></script>
+<script src="./web/js/ie10-viewport-bug-workaround.js"></script>
+<script type="text/javascript" src="./web/js/datatables.min.js"></script>
+<script src="./web/js/myjs.js"></script>
+</body>
+</html>

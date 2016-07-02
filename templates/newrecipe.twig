@@ -1,0 +1,239 @@
+{% extends "layout.twig" %}
+
+{% block title %}Ajouter une recette{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+
+
+  <a href="./"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> > {{ fil }}
+
+  <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Proposer une nouvelle recette</legend>
+
+      <!-- Nom de la recette -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeName">Nom de la recette</label>
+        <div class="col-md-5">
+          <input id="recipeName" name="recipeName" type="text" placeholder="nom de la recette" class="form-control input-md" required="" pattern="^[\w\-\s]+">
+          <span class="help-block">100 caractères maximum (lettres, - et éspaces)</span>
+        </div>
+      </div>
+
+      <!-- Type de plat -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeType">Type de plat</label>
+        <div class="col-md-5">
+          <select id="recipeType" name="recipeType" class="form-control" required="">
+            <option selected="selected" value="" disabled="disabled">Type de plat</option>
+            <option value="1">Entrée</option>
+            <option value="2">Plat principal</option>
+            <option value="3">Dessert</option>
+            <option value="4">Accompagnement</option>
+            <option value="5">Amuse-gueule</option>
+            <option value="6">Boisson</option>
+            <option value="7">Confiserie</option>
+            <option value="8">Sauce</option>
+            <option value="9">Conseil</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Plat végétarien -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeVegetarian">Végétarien</label>
+        <div class="col-md-4">
+          <div class="radio">
+            <label for="recipeVegetarian-0">
+              <input type="radio" name="recipeVegetarian" id="recipeVegetarian-0" value="0">
+              Oui
+            </label>
+          </div>
+          <div class="radio">
+            <label for="recipeVegetarian-1">
+              <input type="radio" name="recipeVegetarian" id="recipeVegetarian-1" value="1" checked="checked">
+              Non
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Difficulté -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeDifficulty">Difficulté</label>
+        <div class="col-md-5">
+          <select id="recipeDifficulty" name="recipeDifficulty" class="form-control" required="">
+            <option selected="selected" value="" disabled="disabled">Difficulté</option>
+            <option value="0">Très facile</option>
+            <option value="1">Facile</option>
+            <option value="2">Moyen</option>
+            <option value="3">Dfficile</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Coût de la recette -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeCost">Coût</label>
+        <div class="col-md-5">
+          <select id="recipeCost" name="recipeCost" class="form-control" required="">
+            <option selected="selected" value="" disabled="disabled">Coût de la recette</option>
+            <option value="1">Bon marché</option>
+            <option value="2">Moyen</option>
+            <option value="3">Assez cher</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Temps de préparation heures + minutes-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipePrep">Temps de préparation</label>
+        <div class="col-md-1">
+          <input id="recipePrepHour" name="recipePrepHour" type="text" placeholder="0" class="form-control input-md" required="">
+        </div>
+        <label class="col-md-1 control-label" for="recipePrepHour">heure(s)</label>
+        <div class="col-md-1">
+          <input id="recipePrepMin" name="recipePrepMin" type="text" placeholder="0" class="form-control input-md" required="">
+        </div>
+        <label class="col-md-1 control-label" for="recipePrepMin">minute(s)</label>
+      </div>
+
+      <!-- Temps de cuisson heures + minutes-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeBaking">Temps de cuisson</label>
+        <div class="col-md-1">
+          <input id="recipePrepHour" name="recipeBakingHour" type="text" placeholder="0" class="form-control input-md" required="">
+        </div>
+        <label class="col-md-1 control-label" for="recipeBakingHour">heure(s)</label>
+        <div class="col-md-1">
+          <input id="recipePrepMin" name="recipeBakingMin" type="text" placeholder="0" class="form-control input-md" required="">
+        </div>
+        <label class="col-md-1 control-label" for="recipeBakingMin">minute(s)</label>
+      </div>
+
+      <!-- Type de cuisson -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeBakingType">Type de cuisson</label>
+        <div class="col-md-5">
+          <select id="recipeBakingType" name="recipeBakingType" class="form-control" required="">
+            <option selected="selected" value="" disabled="disabled">Type de cuisson</option>
+            <option value="1">Four</option>
+            <option value="2">Plaques</option>
+            <option value="3">Sans cuisson</option>
+            <option value="4">Autres</option>
+          </select>
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Portion-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipePortionValue">Nombre de portions</label>
+        <div class="col-md-2">
+          <input id="recipePortionValue" name="recipePortionValue" type="text" placeholder="0" class="form-control input-md" required="">
+        </div>
+        <div class="col-md-2">
+          <input id="recipePortionUnit" name="recipePortionUnit" type="text" placeholder="pers" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <span class="help-block text-center">Exemple : pour 4 personnes, pour 10 pièces, pour 1 litre...</span>
+
+      <hr class="hr_form">
+
+      <!-- Ajouter un ingrédient-->
+      <div id="ingredients">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="recipeIngredientQty">Ingrédients (quantité et intitulé)</label>
+          <div class="col-md-1">
+            <input name="recipeIngredientQty1" type="text" placeholder="Quantité" class="recipeIngredientQty form-control input-md" required="">
+          </div>
+          <div class="col-md-2">
+            <input name="recipeIngredientName1" type="text" placeholder="Ingrédient" class="recipeIngredientName form-control input-md" required="">
+          </div>
+        </div>
+      </div>
+      <span class="help-block text-center">Exemple : 5 cuillères à soupe de miel, 200 g de farine, 10 cl de lait, 3 pommes...</span>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <button id="recipeAddIngredient" name="recipeAddIngredient" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un autre ingrédient</button>
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Etapes de la recette -->
+      <div id="etapes">
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="recipeStep">Etape de la recette</label>
+          <div class="col-md-4">
+            <textarea class="form-control recipeStep" name="recipeStep1" required="">Décrivez votre étape de la recette.</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rajouter une étape  -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeAddStep"></label>
+        <div class="col-md-4">
+          <button id="recipeAddStep" name="recipeAddStep" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter une autre étape</button>
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Boisson conseil-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeDrink">Boisson conseillée</label>
+        <div class="col-md-5">
+          <input id="recipeDrink" name="recipeDrink" type="text" placeholder="votre boisson" class="form-control input-md">
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Remarques additionels -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeNote">Remarque</label>
+        <div class="col-md-4">
+          <textarea class="form-control" id="recipeNote" name="recipeNote">Ajoutez une remarque</textarea>
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- File Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipePhoto">Photo du plat</label>
+        <div class="col-md-4">
+          <input id="recipePhoto" name="recipePhoto" class="input-file" type="file">
+        </div>
+      </div>
+
+      <hr class="hr_form">
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="recipeValid"></label>
+        <div class="col-md-4">
+          {#<input type="submit" id="recipeValid" name="recipeValid" class="btn btn-success" value="Soumettre ma recette">#}
+          <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Soumettre ma recette</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+
+{% endblock %}
