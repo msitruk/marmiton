@@ -26,7 +26,7 @@ class Database
      * @param string $db_pass
      * @param string $db_host
      */
-    public function __construct($db_name = 'marmiton', $db_user = 'root', $db_pass = 'pf69ppyo', $db_host = 'localhost')
+    public function __construct($db_name = 'marmiton', $db_user = 'root', $db_pass = '', $db_host = 'localhost')
     {
         $this->db_name = $db_name;
         $this->db_user = $db_user;
